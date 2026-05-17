@@ -150,7 +150,7 @@ async function registrarFaltante(){
 
   // 💌 ENVIAR AL SERVIDOR
   try {
-    const res = await fetch("http://localhost:3000/enviar-faltante", {
+    const res = await fetch("https://ppkrl-server.onrender.com/enviar-correo", {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
