@@ -1,0 +1,371 @@
+body{
+  margin:0;
+  font-family:Poppins;
+  background:#f4f7fb;
+}
+
+.header{
+  display:flex;
+  justify-content:space-between;
+  padding:15px 40px;
+  background:#6EC1E4;
+  color:white;
+  align-items:center;
+}
+
+.logo{width:120px;}
+
+nav a{
+  color:white;
+  margin:15px;
+  text-decoration:none;
+  font-weight:bold;
+  transition:.3s;
+}
+nav a:hover{color:#FFD166;}
+
+.hero{
+  height:80vh;
+  background:linear-gradient(45deg,#FFD166,#6EC1E4);
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  color:white;
+}
+
+.btn{
+  background:white;
+  padding:12px 25px;
+  border-radius:30px;
+  color:#333;
+  text-decoration:none;
+  font-weight:bold;
+  transition:.3s;
+}
+.btn:hover{transform:scale(1.1);}
+
+.cards{
+  display:flex;
+  justify-content:center;
+  gap:30px;
+  padding:60px;
+}
+
+.card-home{
+  background:white;
+  padding:40px;
+  border-radius:20px;
+  font-size:25px;
+  cursor:pointer;
+  transition:.4s;
+  box-shadow:0 10px 20px rgba(0,0,0,0.1);
+}
+.card-home:hover{
+  transform:translateY(-10px) scale(1.05);
+  background:#FFD166;
+}
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:30px;
+  padding:40px;
+}
+
+.product{
+  background:white;
+  padding:20px;
+  border-radius:20px;
+  text-align:center;
+  transition:.4s;
+}
+.product:hover{transform:scale(1.05);}
+
+.servicios-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:30px;
+  padding:50px;
+}
+
+.serv{
+  background:#FFD166;
+  padding:40px;
+  font-size:25px;
+  text-align:center;
+  border-radius:20px;
+  transition:.3s;
+}
+.serv:hover{background:#6EC1E4;color:white;}
+
+.sucursales{padding:40px;text-align:center;}
+.sucursal{
+  background:white;
+  padding:20px;
+  margin:20px auto;
+  width:60%;
+  border-radius:15px;
+}
+
+.horario{font-size:30px;color:#6EC1E4;}
+
+.whatsapp{
+  position:fixed;
+  bottom:20px;
+  right:20px;
+  background:#25D366;
+  padding:15px;
+  border-radius:50%;
+  font-size:25px;
+  text-decoration:none;
+}
+
+.fade{animation:fade 0.7s;}
+@keyframes fade{
+  from{opacity:0;transform:translateY(20px);}
+  to{opacity:1;}
+}
+/* ===== CARRITO ===== */
+.cart-btn{
+  position:fixed;
+  top:20px;
+  right:20px;
+  background:#FFD166;
+  padding:12px 18px;
+  border-radius:30px;
+  font-weight:bold;
+  cursor:pointer;
+  z-index:999;
+}
+
+.cart-panel{
+  position:fixed;
+  right:-400px;
+  top:0;
+  width:350px;
+  height:100%;
+  background:white;
+  box-shadow:-5px 0 15px rgba(0,0,0,0.2);
+  padding:20px;
+  transition:.4s;
+  z-index:1000;
+}
+
+.cart-panel.open{ right:0; }
+
+.cart-item{ margin:10px 0; }
+
+.pay-btn{
+  background:#6EC1E4;
+  color:white;
+  border:none;
+  padding:12px;
+  width:100%;
+  margin-top:10px;
+  border-radius:10px;
+  cursor:pointer;
+}
+/* BOTON ADMIN DISCRETO */
+.admin-link{
+  position:fixed;
+  bottom:10px;
+  right:10px;
+  font-size:12px;
+  opacity:0.5;
+  text-decoration:none;
+  color:#000;
+}
+
+.admin-link:hover{
+  opacity:1;
+}
+/* ===== BOTON HOME MAGICO ===== */
+.homeBtn{
+    position:fixed;
+    bottom:25px;
+    right:25px;
+    width:70px;
+    height:70px;
+    background:#0f172a;
+    border-radius:50%;
+    cursor:pointer;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    box-shadow:0 10px 25px rgba(0,0,0,.3);
+    transition:.4s;
+    z-index:999;
+}
+
+.homeBtn:hover{
+    transform:scale(1.1) rotate(8deg);
+    background:#1e293b;
+}
+
+.icon{
+    width:30px;
+    height:30px;
+    position:relative;
+    transition:.4s;
+}
+
+/* CASITA */
+.icon::before{
+    content:"";
+    position:absolute;
+    width:22px;
+    height:18px;
+    background:white;
+    bottom:0;
+    left:4px;
+    border-radius:3px;
+}
+
+.icon::after{
+    content:"";
+    position:absolute;
+    width:0;
+    height:0;
+    border-left:15px solid transparent;
+    border-right:15px solid transparent;
+    border-bottom:18px solid white;
+    top:-10px;
+}
+
+/* LAPIZ AL HOVER */
+.homeBtn:hover .icon::before{
+    width:6px;
+    height:28px;
+    left:12px;
+    transform:rotate(45deg);
+}
+
+.homeBtn:hover .icon::after{
+    border:none;
+    width:10px;
+    height:10px;
+    background:#60a5fa;
+    top:-6px;
+    left:20px;
+    transform:rotate(45deg);
+}
+/* ===== POSICION IZQUIERDA ===== */
+.homeBtn{
+    position:fixed;
+    bottom:25px;
+    left:25px; /* ← CAMBIO A IZQUIERDA */
+}
+
+/* ===== INTRO LOGO ===== */
+#introLogo{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100vh;
+    background:#0f172a;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    z-index:9999;
+    animation:fadeOut 2.5s forwards;
+}
+
+#introLogo img{ width:260px; /* tamaño grande */ max-width:70%; /* que se adapte en celular */ filter: drop-shadow(0 0 25px rgba(255,255,255,0.4)); animation:logoPop 1.4s ease;
+}
+@keyframes logoPop{ 0%{transform:scale(0) rotate(-30deg); opacity:0;} 50%{transform:scale(1.25) rotate(10deg); opacity:1;} 80%{transform:scale(1.05);} 100%{transform:scale(1);}}
+
+@keyframes fadeOut{
+    0%,80%{opacity:1;}
+    100%{opacity:0; visibility:hidden;}
+}
+/* ================= GENERAL ================= */
+
+body {
+  font-family: Arial, sans-serif;
+  background: #f4f6f8;
+  margin: 0;
+  padding: 20px;
+}
+
+/* ================= TITULO ================= */
+
+h1 {
+  text-align: center;
+  color: #222;
+}
+
+/* ================= FORMULARIO PRODUCTOS ================= */
+
+input {
+  display: block;
+  width: 300px;
+  max-width: 90%;
+  padding: 10px;
+  margin: 8px auto;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  outline: none;
+}
+
+input:focus {
+  border-color: #4a90e2;
+  box-shadow: 0 0 5px rgba(74,144,226,0.5);
+}
+
+/* ================= BOTÓN ================= */
+
+button {
+  display: block;
+  margin: 15px auto;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  background: #4a90e2;
+  color: white;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+button:hover {
+  background: #357abd;
+  transform: scale(1.05);
+}
+
+/* ================= LISTA DE PRODUCTOS ================= */
+
+#lista {
+  margin-top: 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 15px;
+  padding: 10px;
+}
+
+/* ================= CARD DE PRODUCTO ================= */
+
+#lista div {
+  background: white;
+  padding: 15px;
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  transition: 0.2s;
+}
+
+#lista div:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+}
+
+/* ================= TEXTO PRODUCTO ================= */
+
+#lista div {
+  font-size: 14px;
+  color: #333;
+}
+
+#lista div b {
+  font-size: 16px;
+  color: #000;
+}
