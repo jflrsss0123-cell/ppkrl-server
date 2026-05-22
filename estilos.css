@@ -369,3 +369,21 @@ button:hover {
   font-size: 16px;
   color: #000;
 }
+#secretAdmin{
+    position:fixed;
+    bottom:15px;
+    left:15px;
+    width:18px;
+    height:18px;
+    background:black;
+    border-radius:50%;
+    opacity:.15;
+    z-index:9999;
+    cursor:pointer;
+    transition:.3s;
+}
+
+#secretAdmin:hover{
+    opacity:1;
+    transform:scale(1.3);
+}

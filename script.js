@@ -99,11 +99,13 @@ window.registrarFaltante = async function(){
   limpiarFaltante();
 }
 function limpiarFaltante(){
-  codigoFaltante.value="";
-  descripcionArticulo.value="";
-  nombreProveedor.value="";
-  correoProveedor.value="";
-  cantidadFaltante.value="";
+
+  document.getElementById("codigoFaltante").value = "";
+  document.getElementById("descripcionArticulo").value = "";
+  document.getElementById("nombreProveedor").value = "";
+  document.getElementById("correoProveedor").value = "";
+  document.getElementById("cantidadFaltante").value = "";
+
 }
 window.guardarProveedor = function(){
 
@@ -236,3 +238,79 @@ function mostrarHistorial(){
 }
 
 window.addEventListener("load", mostrarHistorial);
+let carrito = [];
+
+function toggleCart(){
+  document.getElementById("cartPanel").classList.toggle("open");
+}
+
+function pagar(){
+  alert("Pago simulado ✔");
+}
+
+function apartar(){
+  alert("Pedido apartado ✔");
+}
+
+function ir(pagina){
+  window.location.href = pagina;
+}
+let clicksAdmin = 0;
+const secreto =
+document.getElementById("secretAdmin");
+
+if(secreto){
+
+  let clicks = 0;
+
+  secreto.addEventListener("click",()=>{
+
+    clicks++;
+
+    if(clicks >= 4){
+
+      window.location.href =
+      "admin.html";
+
+    }
+
+  });
+
+}
+
+    clicksAdmin++;
+
+    if(clicksAdmin >= 4){
+        window.location.href = "admin.html";
+    }
+
+    setTimeout(()=>{
+        clicksAdmin = 0;
+    },2000);
+
+
+ function ocultarTodo(){
+
+  document
+  .querySelectorAll(".adminSection")
+  .forEach(sec=>{
+    sec.classList.add("hidden");
+  });
+
+}
+
+function mostrarSeccion(id){
+
+  ocultarTodo();
+
+  document
+  .getElementById(id)
+  .classList.remove("hidden");
+
+}
+
+function volverInicio(){
+
+  ocultarTodo();
+
+}

@@ -1,268 +1,82 @@
 body{
-  font-family: Arial, Helvetica, sans-serif;
-  background:#f4f7fb;
-  text-align:center;
-  margin:0;
+    margin:0;
+    font-family:Arial;
+    background:#f4f4f4;
 }
 
 /* LOGIN */
-.login{
-  margin-top:120px;
+
+.loginBox{
+    width:320px;
+    background:white;
+    padding:30px;
+    border-radius:15px;
+    margin:120px auto;
+    text-align:center;
+    box-shadow:0 0 15px rgba(0,0,0,.2);
 }
 
 input{
-  padding:12px;
-  margin:10px;
-  width:260px;
-  border-radius:10px;
-  border:1px solid #ccc;
-  font-size:16px;
+    width:90%;
+    padding:12px;
+    margin:10px 0;
+    border-radius:10px;
+    border:1px solid #ccc;
 }
 
 button{
-  padding:12px 25px;
-  border:none;
-  background:#6EC1E4;
-  color:white;
-  border-radius:10px;
-  cursor:pointer;
-  font-size:16px;
+    padding:12px 20px;
+    border:none;
+    background:#0f172a;
+    color:white;
+    border-radius:10px;
+    cursor:pointer;
+    margin-top:10px;
 }
 
 button:hover{
-  background:#4aa7ce;
-}
-
-.hidden{ display:none; }
-
-/* TARJETAS */
-.card{
-  background:white;
-  margin:20px auto;
-  padding:18px;
-  width:60%;
-  border-radius:15px;
-  box-shadow:0 5px 15px rgba(0,0,0,.15);
-  text-align:left;
-}
-
-.danger{
-  background:#ff5757;
-  margin:30px;
-}
-/* ===== BOTON HOME MAGICO ===== */
-.homeBtn{
-    position:fixed;
-    bottom:25px;
-    right:25px;
-    width:70px;
-    height:70px;
-    background:#0f172a;
-    border-radius:50%;
-    cursor:pointer;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    box-shadow:0 10px 25px rgba(0,0,0,.3);
-    transition:.4s;
-    z-index:999;
-}
-
-.homeBtn:hover{
-    transform:scale(1.1) rotate(8deg);
     background:#1e293b;
 }
 
-.icon{
-    width:30px;
-    height:30px;
-    position:relative;
-    transition:.4s;
+/* PANEL */
+
+.hidden{
+    display:none;
 }
 
-/* CASITA */
-.icon::before{
-    content:"";
-    position:absolute;
-    width:22px;
-    height:18px;
+#panelAdmin{
+    padding:20px;
+}
+
+.card{
     background:white;
-    bottom:0;
-    left:4px;
-    border-radius:3px;
+    padding:20px;
+    border-radius:15px;
+    margin:20px auto;
+    width:80%;
+    box-shadow:0 0 10px rgba(0,0,0,.1);
 }
 
-.icon::after{
-    content:"";
-    position:absolute;
-    width:0;
-    height:0;
-    border-left:15px solid transparent;
-    border-right:15px solid transparent;
-    border-bottom:18px solid white;
-    top:-10px;
+.item{
+    background:#f1f1f1;
+    padding:10px;
+    margin:10px 0;
+    border-radius:10px;
 }
-
-/* LAPIZ AL HOVER */
-.homeBtn:hover .icon::before{
-    width:6px;
-    height:28px;
-    left:12px;
-    transform:rotate(45deg);
-}
-
-.homeBtn:hover .icon::after{
-    border:none;
-    width:10px;
-    height:10px;
-    background:#60a5fa;
-    top:-6px;
-    left:20px;
-    transform:rotate(45deg);
-}
-/* ===== POSICION IZQUIERDA ===== */
-.homeBtn{
-    position:fixed;
-    bottom:25px;
-    left:25px; /* ← CAMBIO A IZQUIERDA */
-}
-
-/* ===== INTRO LOGO ===== */
-#introLogo{
-    position:fixed;
-    top:0;
-    left:0;
-    width:100%;
-    height:100vh;
-    background:#0f172a;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    z-index:9999;
-    animation:fadeOut 2.5s forwards;
-}
-
-#introLogo img{ width:260px; /* tamaño grande */ max-width:70%; /* que se adapte en celular */ filter: drop-shadow(0 0 25px rgba(255,255,255,0.4)); animation:logoPop 1.4s ease;
-}
-
-@keyframes logoPop{ 0%{transform:scale(0) rotate(-30deg); opacity:0;} 50%{transform:scale(1.25) rotate(10deg); opacity:1;} 80%{transform:scale(1.05);} 100%{transform:scale(1);}
-}
-
-@keyframes fadeOut{
-    0%,80%{opacity:1;}
-    100%{opacity:0; visibility:hidden;}
-}
-.panel{
-  background:#45546d;
-  padding:25px;
-  margin:25px;
-  border-radius:15px;
-}
-
-.panel input{
-  display:block;
-  width:100%;
-  margin:10px 0;
-  padding:10px;
-  border:none;
-  border-radius:8px;
-}
-
-.panel button{
-  background:#22c55e;
-  color:white;
-  padding:10px 20px;
-  border:none;
-  border-radius:10px;
-  cursor:pointer;
-}
-.cardProv{
-  background:#4971a8;
-  padding:15px;
-  margin:15px 0;
-  border-radius:10px;
-}
-/* BOTONES SUPERIORES */
 .top-buttons{
   display:flex;
   gap:10px;
+  flex-wrap:wrap;
   justify-content:center;
   margin:20px;
 }
 
-/* MODAL */
-.modal{
-  position:fixed;
-  top:0;
-  left:0;
-  width:100%;
-  height:100%;
-  background:rgba(0,0,0,0.6);
-  display:flex;
-  justify-content:center;
-  align-items:center;
-}
-
-.hidden{
-  display:none;
-}
-
-.modal-content{
+.adminSection{
   background:white;
-  padding:20px;
-  border-radius:10px;
-  width:300px;
-  display:flex;
-  flex-direction:column;
-  gap:8px;
-}
-body.center{
-    background:#f2f2f2;
-    text-align:center;
-    font-family: Arial;
-}
-
-.menuProveedores{
-    margin-top:120px;
-    display:flex;
-    justify-content:center;
-    gap:120px;
-}
-
-.btnGrande{
-    padding:25px 45px;
-    font-size:22px;
-    border-radius:20px;
-    border:6px solid black;
-    background:white;
-    cursor:pointer;
-    transition:.2s;
-}
-
-.btnGrande:hover{
-    transform:scale(1.08);
-}
-
-.panel{
-    margin-top:50px;
-}
-
-.oculto{
-    display:none;
-}
-
-input{
-    display:block;
-    margin:10px auto;
-    padding:10px;
-    width:250px;
-}
-
-.card{
-    background:white;
-    padding:15px;
-    margin:15px auto;
-    width:300px;
-    border-radius:10px;
-    box-shadow:0 0 10px #ccc;
+  padding:25px;
+  margin:20px auto;
+  width:90%;
+  max-width:700px;
+  border-radius:20px;
+  box-shadow:0 5px 20px rgba(0,0,0,.1);
 }

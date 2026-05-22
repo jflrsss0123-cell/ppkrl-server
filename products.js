@@ -24,13 +24,21 @@ function guardarProveedor(){
     .filter(p => p !== "");
 
   const proveedor = {
-    nombre,
-    rfc,
-    telefono,
-    correo,
-    direccion,
-    productos: productosArray
-  };
+
+  codigo:
+  document
+  .getElementById("codigoProveedor")
+  .value
+  .toUpperCase(),
+
+  nombre,
+  rfc,
+  telefono,
+  correo,
+  direccion,
+  productos: productosArray
+
+};
 
   let data = obtenerProveedores();
   data.push(proveedor);

@@ -2,79 +2,182 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<title>Panel Admin Papelería Karol</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admin Papelería Karol</title>
 <link rel="stylesheet" href="admin.css">
 </head>
 <body>
 
 <!-- LOGIN -->
-<div class="login">
-  <h1>🔐 Panel Administrativo</h1>
-  <input id="user" placeholder="Usuario">
-  <input id="pass" type="password" placeholder="Contraseña">
-  <button onclick="login()">Entrar</button>
+<div class="loginBox" id="loginBox">
+
+    <h1>🔐 Panel Admin</h1>
+
+    <input type="text" id="usuario" placeholder="Usuario">
+    <input type="password" id="password" placeholder="Contraseña">
+
+    <button onclick="login()">Entrar</button>
+
 </div>
 
-<!-- PANEL ADMIN (SE DESBLOQUEA CON LOGIN) -->
-<div id="panel" class="hidden">
+<!-- PANEL -->
+<div id="panelAdmin" class="hidden">
+    <div class="top-buttons">
 
-  <h1>📊 Panel Administrativo</h1>
+  <button onclick="mostrarSeccion('menuAdmin')">
+    🏠 Inicio
+  </button>
 
-  <a href="proveedores.html">Proveedores</a>
-  <br><br>
-  <h2>📦 Historial de Faltantes</h2>
-<div id="historial"></div>
+  <button onclick="mostrarSeccion('panelProductos')">
+    📦 Productos
+  </button>
 
-  <h2>💳 Pedidos PAGADOS</h2>
-  <div id="pagados"></div>
+  <button onclick="mostrarSeccion('panelProveedores')">
+    🏢 Proveedores
+  </button>
 
-  <h2>📦 Pedidos APARTADOS</h2>
-  <div id="apartados"></div>
-  <h2>🚨 HISTORIAL DE FALTANTES</h2>
+  <button onclick="mostrarSeccion('panelFaltantes')">
+    🚨 Faltantes
+  </button>
+
+  <button onclick="mostrarSeccion('panelHistorial')">
+    📜 Historial
+  </button>
+<div id="panelProductos" class="adminSection hidden">
+
+<h2>📦 Productos</h2>
+
+<input id="prodCodigo" placeholder="Código">
+<input id="prodDescripcion" placeholder="Descripción">
+
+<button onclick="guardarProducto()">
+Guardar producto
+</button>
+
+<div id="listaProductos"></div>
+
+<button onclick="volverInicio()">
+⬅️ Volver
+</button>
+
+</div>
+</div>
+
+    <h1>📊 PANEL ADMINISTRATIVO</h1>
+
+    <!-- PRODUCTOS -->
+    <div class="card">
+
+        <h2>📦 Añadir Producto</h2>
+
+        <input type="text" id="codigoProducto" placeholder="Código">
+        <input type="text" id="descripcionProducto" placeholder="Descripción">
+
+        <button onclick="guardarProducto()">
+            Guardar Producto
+        </button>
+
+    </div>
+
+    <!-- PROVEEDORES -->
+    <div class="card">
+<div class="card">
+
+<h2>🏢 Añadir proveedor</h2>
+
+<input id="codigoProveedor" placeholder="Código producto">
+
+<input id="empresaProveedor" placeholder="Empresa">
+
+<input id="nombreProveedor" placeholder="Nombre contacto">
+
+<input id="rfcProveedor" placeholder="RFC">
+
+<input id="telefonoProveedor" placeholder="Teléfono">
+
+<input id="correoProveedor" placeholder="Correo">
+
+<input id="direccionProveedor" placeholder="Dirección">
+
+<select id="contratoProveedor">
+
+  <option>1 mes</option>
+  <option>6 meses</option>
+  <option>1 año</option>
+  <option>2 años</option>
+  <option>5 años</option>
+
+</select>
+
+<button onclick="guardarProveedor()">
+Guardar proveedor
+</button>
+<div id="panelFaltantes" class="adminSection hidden">
+
+<h2>🚨 Registrar faltante</h2>
+
+<input id="codigoFaltante" placeholder="Código">
+
+<input id="descripcionArticulo" readonly>
+
+<input id="nombreProveedorFaltante" readonly>
+
+<input id="correoProveedorFaltante" readonly>
+
+<input id="cantidadFaltante" type="number" placeholder="Cantidad">
+
+<button onclick="registrarFaltante()">
+Registrar faltante
+</button>
+
+<p id="mensajeFaltante"></p>
+
+<button onclick="volverInicio()">
+⬅️ Volver
+</button>
+<div id="panelHistorial" class="adminSection hidden">
+
+<h2>📜 Historial faltantes</h2>
+
 <div id="historialFaltantes"></div>
 
-  <button class="danger" onclick="limpiar()">🧹 Limpiar registros</button>
-
-  <hr>
-
-  <!-- ⭐ MODULO FALTANTES (AHORA SÍ DENTRO DEL PANEL) -->
-  <h2>📦 MÓDULO DE FALTANTES</h2>
-
-  <div class="faltantes-box">
-      <label>Código del artículo:</label><br>
-      <input type="text" id="codigoFaltante"><br><br>
-
-      <label>Descripción:</label><br>
-      <input type="text" id="descripcionArticulo" readonly><br><br>
-
-      <label>Proveedor:</label><br>
-      <input type="text" id="nombreProveedor" readonly><br><br>
-
-      <label>Correo proveedor:</label><br>
-      <input type="text" id="correoProveedor" readonly><br><br>
-
-      <label>Cantidad que falta:</label><br>
-      <input type="number" id="cantidadFaltante"><br><br>
-
-      <button onclick="registrarFaltante()">Registrar faltante</button>
-      <p id="mensajeFaltante"></p>
-  </div>
+<button onclick="volverInicio()">
+⬅️ Volver
+</button>
 
 </div>
-
-<!-- COSAS VISUALES -->
-<div id="introLogo">
-   <img src="imgnes/unnamed.webp">
+</div>
 </div>
 
-<button onclick="abrirPOS()">Abrir sistema de Abarrotes</button>
+    </div>
 
-<div class="homeBtn" onclick="ir('index.html')">
-    <div class="icon"></div>
+    <!-- LISTAS -->
+    <div class="card">
+
+        <h2>📋 Productos</h2>
+        <div id="listaProductos"></div>
+
+    </div>
+
+    <div class="card">
+
+        <h2>📋 Proveedores</h2>
+        <div id="listaProveedores"></div>
+
+    </div>
+
 </div>
+<div class="card">
 
-<!-- SCRIPTS SIEMPRE AL FINAL -->
-<script src="script.js"></script>
+  <h2>🚨 Faltantes</h2>
+
+  <a href="faltantes.html">
+    <button>
+      Abrir módulo de faltantes
+    </button>
+  </a>
+
+</div>
 <script src="admin.js"></script>
 
 </body>

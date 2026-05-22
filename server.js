@@ -1,50 +1,115 @@
 const express = require("express");
-const nodemailer = require("nodemailer");
 const cors = require("cors");
+const nodemailer = require("nodemailer");
 
 const app = express();
+
 app.use(cors());
 app.use(express.json());
-// 🔐 CONFIGURAR TU GMAIL
+
+/* =========================
+   CONFIGURAR CORREO
+========================= */
+
 const transporter = nodemailer.createTransport({
-  service: "gmail",
-  auth: {
-    user: "jflrsss0123@gmail.com",
-    pass: "svxfekiimipfwulo"
+
+  service:"gmail",
+
+  auth:{
+    user:"jflrsss0123@gmail.com",
+    pass:"fuoqtnoezdcpwurg"
   }
+
 });
 
-// 📩 ENVIAR CORREO AL PROVEEDOR
-app.post("/enviar-faltante", async (req, res) => {
+/* =========================
+   RUTA ENVIAR CORREO
+========================= */
 
-  const { proveedor, correo, descripcion, cantidad } = req.body;
+app.post("/enviar-correo", async(req,res)=>{
 
-  const mailOptions = {
-    from: "Papelería Karol <TU_CORREO@gmail.com>",
-    to: correo,
-    subject: "Solicitud de surtido de producto",
-    html: `
-      <h2>Hola ${proveedor} 👋</h2>
-      <p>Esperamos que se encuentre muy bien.</p>
+  try{
 
-      <p>Le solicitamos cordialmente el surtido del siguiente producto:</p>
+    const {
+      proveedor,
+      correo,
+      descripcion,
+      cantidad
+    } = req.body;
 
-      <h3>${descripcion}</h3>
-      <h2>Cantidad solicitada: ${cantidad}</h2>
+    await transporter.sendMail({
 
-      <p>Quedamos atentos a su confirmación.</p>
+      from:"Papelerias Karol <TU_CORREO@gmail.com>",
+
+      to:correo,
+
+      subject:"Solicitud de surtido",
+
+      html:`
+
+      <h2>Hola ${proveedor}</h2>
+
+      <p>
+      Esperamos que se encuentre bien.
+      </p>
+
+      <p>
+      Tenemos faltante del siguiente producto:
+      </p>
+
+      <ul>
+        <li>
+        <b>Producto:</b>
+        ${descripcion}
+        </li>
+
+        <li>
+        <b>Cantidad:</b>
+        ${cantidad}
+        </li>
+      </ul>
+
+      <p>
+      Agradecemos su apoyo para surtirlo.
+      </p>
 
       <br>
-      <b>Papelería Karol</b>
-    `
-  };
 
-  try {
-    await transporter.sendMail(mailOptions);
-    res.send({ ok: true });
-  } catch (error) {
+      <b>
+      Saludos cordiales
+      <br>
+      Papelerías Karol
+      </b>
+
+      `
+
+    });
+
+    res.json({
+      ok:true
+    });
+
+  }catch(error){
+
     console.log(error);
-    res.status(500).send("Error enviando correo");
+
+    res.json({
+      ok:false,
+      error:error.message
+    });
+
   }
+
 });
-app.listen(3000, () => console.log("Servidor corriendo en puerto 3000"));
+
+/* =========================
+   SERVIDOR
+========================= */
+
+app.listen(3000, ()=>{
+
+  console.log(
+    "Servidor funcionando en puerto 3000"
+  );
+
+});

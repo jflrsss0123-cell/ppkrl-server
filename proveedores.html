@@ -1,40 +1,36 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>Proveedores</title>
-<link rel="stylesheet" href="admin.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proveedores</title>
+    <link rel="stylesheet" href="style.css">
 </head>
+<body>
+<header>📦 PROVEEDORES</header>
 
-<body class="center">
+<div class="container">
 
-<h1>Proveedores</h1>
+  <div class="card">
+    <h3>➕ Nuevo proveedor</h3>
+<input id="codigoProveedor" placeholder="Código producto">
+    <input id="nombre" placeholder="Nombre">
+    <input id="rfc" placeholder="RFC">
+    <input id="telefono" placeholder="Teléfono">
+    <input id="correo" placeholder="Correo">
+    <input id="direccion" placeholder="Dirección">
 
-<div class="menuProveedores">
-    <button class="btnGrande" onclick="mostrarFormulario()">➕ Añadir proveedor</button>
-    <button class="btnGrande" onclick="mostrarLista()">📋 Lista de proveedores</button>
+    <input id="productos" placeholder="Productos (LAPIZ, CUADERNO)">
+
+    <button onclick="guardarProveedor()">Guardar</button>
+  </div>
+
+  <div id="listaProveedores"></div>
+
 </div>
 
-<!-- FORMULARIO -->
-<div id="formProveedor" class="panel oculto">
-    <h2>Nuevo proveedor</h2>
+<script src="products.js"></script>
+<script>mostrarProveedores()</script>
 
-    <input id="provNombre" placeholder="Nombre proveedor">
-    <input id="provRFC" placeholder="RFC">
-    <input id="provTelefono" placeholder="Teléfono">
-    <input id="provCorreo" placeholder="Correo">
-    <input id="provDireccion" placeholder="Dirección">
-    <input id="provProductos" placeholder="Códigos de productos (coma)">
-
-    <button onclick="guardarProveedor()">Guardar proveedor</button>
-</div>
-
-<!-- LISTA -->
-<div id="listaPanel" class="panel oculto">
-    <h2>Lista de proveedores</h2>
-    <div id="listaProveedores"></div>
-</div>
-
-<script src="script.js"></script>
 </body>
 </html>
