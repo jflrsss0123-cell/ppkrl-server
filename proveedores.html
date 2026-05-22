@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -33,4 +34,45 @@
 <script>mostrarProveedores()</script>
 
 </body>
+=======
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Proveedores</title>
+<link rel="stylesheet" href="admin.css">
+</head>
+
+<body class="center">
+
+<h1>Proveedores</h1>
+
+<div class="menuProveedores">
+    <button class="btnGrande" onclick="mostrarFormulario()">➕ Añadir proveedor</button>
+    <button class="btnGrande" onclick="mostrarLista()">📋 Lista de proveedores</button>
+</div>
+
+<!-- FORMULARIO -->
+<div id="formProveedor" class="panel oculto">
+    <h2>Nuevo proveedor</h2>
+
+    <input id="provNombre" placeholder="Nombre proveedor">
+    <input id="provRFC" placeholder="RFC">
+    <input id="provTelefono" placeholder="Teléfono">
+    <input id="provCorreo" placeholder="Correo">
+    <input id="provDireccion" placeholder="Dirección">
+    <input id="provProductos" placeholder="Códigos de productos (coma)">
+
+    <button onclick="guardarProveedor()">Guardar proveedor</button>
+</div>
+
+<!-- LISTA -->
+<div id="listaPanel" class="panel oculto">
+    <h2>Lista de proveedores</h2>
+    <div id="listaProveedores"></div>
+</div>
+
+<script src="script.js"></script>
+</body>
+>>>>>>> 010daa3801c8cc8b88d59211d734fc9da42800cf
 </html>

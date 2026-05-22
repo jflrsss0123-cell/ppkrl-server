@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -181,4 +182,86 @@ Registrar faltante
 <script src="admin.js"></script>
 
 </body>
+=======
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Panel Admin Papelería Karol</title>
+<link rel="stylesheet" href="admin.css">
+</head>
+<body>
+
+<!-- LOGIN -->
+<div class="login">
+  <h1>🔐 Panel Administrativo</h1>
+  <input id="user" placeholder="Usuario">
+  <input id="pass" type="password" placeholder="Contraseña">
+  <button onclick="login()">Entrar</button>
+</div>
+
+<!-- PANEL ADMIN (SE DESBLOQUEA CON LOGIN) -->
+<div id="panel" class="hidden">
+
+  <h1>📊 Panel Administrativo</h1>
+
+  <a href="proveedores.html">Proveedores</a>
+  <br><br>
+  <h2>📦 Historial de Faltantes</h2>
+<div id="historial"></div>
+
+  <h2>💳 Pedidos PAGADOS</h2>
+  <div id="pagados"></div>
+
+  <h2>📦 Pedidos APARTADOS</h2>
+  <div id="apartados"></div>
+  <h2>🚨 HISTORIAL DE FALTANTES</h2>
+<div id="historialFaltantes"></div>
+
+  <button class="danger" onclick="limpiar()">🧹 Limpiar registros</button>
+
+  <hr>
+
+  <!-- ⭐ MODULO FALTANTES (AHORA SÍ DENTRO DEL PANEL) -->
+  <h2>📦 MÓDULO DE FALTANTES</h2>
+
+  <div class="faltantes-box">
+      <label>Código del artículo:</label><br>
+      <input type="text" id="codigoFaltante"><br><br>
+
+      <label>Descripción:</label><br>
+      <input type="text" id="descripcionArticulo" readonly><br><br>
+
+      <label>Proveedor:</label><br>
+      <input type="text" id="nombreProveedor" readonly><br><br>
+
+      <label>Correo proveedor:</label><br>
+      <input type="text" id="correoProveedor" readonly><br><br>
+
+      <label>Cantidad que falta:</label><br>
+      <input type="number" id="cantidadFaltante"><br><br>
+
+      <button onclick="registrarFaltante()">Registrar faltante</button>
+      <p id="mensajeFaltante"></p>
+  </div>
+
+</div>
+
+<!-- COSAS VISUALES -->
+<div id="introLogo">
+   <img src="imgnes/unnamed.webp">
+</div>
+
+<button onclick="abrirPOS()">Abrir sistema de Abarrotes</button>
+
+<div class="homeBtn" onclick="ir('index.html')">
+    <div class="icon"></div>
+</div>
+
+<!-- SCRIPTS SIEMPRE AL FINAL -->
+<script src="script.js"></script>
+<script src="admin.js"></script>
+
+</body>
+>>>>>>> 010daa3801c8cc8b88d59211d734fc9da42800cf
 </html>

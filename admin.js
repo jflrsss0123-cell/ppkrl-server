@@ -301,8 +301,7 @@ if(proveedor){
   document.getElementById(
     "correoProveedor"
   ).value = "";
-}
-{
+  {
 
   document.getElementById(
     "nombreProveedor"
@@ -313,21 +312,55 @@ if(proveedor){
   ).value = "Sin correo";
 
 }
-      }else{
+     if(producto){
 
-        document.getElementById("descripcionArticulo").value = "";
-        document.getElementById("nombreProveedor").value = "";
-        document.getElementById("correoProveedor").value = "";
+  let proveedores =
+    JSON.parse(localStorage.getItem("proveedores")) || [];
 
-      }
+  let proveedor =
+    proveedores.find(
+      p => p.codigo === codigo
+    );
 
-    });
+  document.getElementById(
+    "descripcionArticulo"
+  ).value = producto.descripcion;
 
+  if(proveedor){
+
+    document.getElementById(
+      "nombreProveedor"
+    ).value = proveedor.nombre || "";
+
+    document.getElementById(
+      "correoProveedor"
+    ).value = proveedor.correo || "";
+
+  }else{
+
+    document.getElementById(
+      "nombreProveedor"
+    ).value = "Sin proveedor";
+
+    document.getElementById(
+      "correoProveedor"
+    ).value = "Sin correo";
   }
 
-});
+}else{
 
-// ================= REGISTRAR FALTANTE =================
+  document.getElementById(
+    "descripcionArticulo"
+  ).value = "";
+
+  document.getElementById(
+    "nombreProveedor"
+  ).value = "";
+
+  document.getElementById(
+    "correoProveedor"
+  ).value = "";
+}
 
 async function registrarFaltante(){
 
@@ -387,5 +420,3 @@ async function registrarFaltante(){
     "Servidor desconectado ❌";
 
   }
-
-}

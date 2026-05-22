@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -62,4 +63,69 @@
 <script src="script.js"></script>
 <div id="secretAdmin"></div>
 </body>
+=======
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Papelerías Karol</title>
+<link rel="stylesheet" href="estilos.css">
+</head>
+<body class="fade">
+
+<header class="header">
+  <img src="imgnes/unnamed.webp" class="logo">
+  <nav>
+  
+    <a href="index.html">Inicio</a>
+    <a href="productos.html">Productos</a>
+    <a href="servicios.html">Servicios</a>
+    <a href="contacto.html">Horarios</a>
+    <a href="admin.html" class="admin-link">Admin</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <div class="hero-text">
+    <h1>Todo para escuela, oficina y creatividad ✏️</h1>
+    <p>3 sucursales en San Juan del Río</p>
+    <a href="productos.html" class="btn">Comprar ahora</a>
+  </div>
+</section>
+
+<section class="cards">
+  <div class="card-home" onclick="ir('productos.html')">
+    📚 Productos
+  </div>
+  <div class="card-home" onclick="ir('servicios.html')">
+    🖨️ Servicios
+  </div>
+  <div class="card-home" onclick="ir('contacto.html')">
+    🕒 Horarios & Sucursales
+  </div>
+</section>
+<div class="cart-btn" onclick="toggleCart()">🛒 Carrito</div>
+
+<div id="cartPanel" class="cart-panel">
+  <h2>Tu carrito</h2>
+  <div id="cartItems"></div>
+  <h3 id="cartTotal">Total: $0</h3>
+
+  <button class="pay-btn" onclick="pagar()">💳 Pagar ahora</button>
+  <button class="pay-btn" onclick="apartar()">📦 Apartar pedido</button>
+</div>
+
+<a href="https://wa.me/524272013083" class="whatsapp">💬</a>
+<!-- BOTON HOME + LOGO INTRO -->
+<div id="introLogo">
+   <img src="imgnes/unnamed.webp">
+</div>
+
+<div class="homeBtn" onclick="ir('index.html')">
+    <div class="icon"></div>
+</div>
+<script src="script.js"></script>
+</body>
+>>>>>>> 010daa3801c8cc8b88d59211d734fc9da42800cf
 </html>
